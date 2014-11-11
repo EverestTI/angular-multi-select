@@ -14,5 +14,5 @@
         "README.md",        
         "screenshot.png"
     ],
-    private: true
+    "private": true
 }
