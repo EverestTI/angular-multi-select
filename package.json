@@ -1,21 +1,20 @@
 {
-    "name": "isteven-angular-multiselect",
+    "name": "everestti-angular-multiselect",
     "version": "v2.0.2",
-    "description": "A multi select dropdown directive for AngularJS",
+    "description": "A multi select dropdown directive for AngularJS forked from isteven",
     "main": {
         "angular-multi-select.js",
         "angular-multi-select.css"
     "repository": {
         "type": "git",
-        "url": "https://github.com/isteven/angular-multi-select.git"
+        "url": "https://github.com/EverestTI/angular-multi-select.git"
     },
     "keywords": [
         "angular"
     ],
-    "author": "Ignatius Steven <isteven.github@gmail.com> (https://github.com/isteven)",
+    "author": "Cleidson França <cleidsonbf@gmail.com> (https://github.com/cbfranca)",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/isteven/angular-multi-select/issues"
-    },
-    "homepage": "https://github.com/isteven/angular-multi-select"
+        "url": "https://github.com/EverestTI/angular-multi-select/issues"
+    }
 }
