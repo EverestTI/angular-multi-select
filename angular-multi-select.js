@@ -132,6 +132,8 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
       helperItems = [];
       helperItemsLength = 0;
 
+      $scope.isDdlLoaded = true;
+
       // If user specify a height, call this function
       $scope.setHeight = function () {
         if (typeof $scope.maxHeight !== 'undefined') {
