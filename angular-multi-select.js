@@ -75,7 +75,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
 
     template:
         '<span class="multiSelect inlineBlock">' +
-            '<button type="button"  class="button multiSelectButton" ng-class="{\'multiSelect--isLoading\': !isDdlLoaded}" ng-disabled="!isDdlLoaded" ng-click="toggleCheckboxes( $event ); refreshSelectedItems(); refreshButton();" ng-bind-html="varButtonLabel">' +
+            '<button type="button"  class="button multiSelectButton" ng-class="{\'multiSelect--isLoading\': !isDdlLoaded}" ng-disabled="isDisabled" ng-click="toggleCheckboxes( $event ); refreshSelectedItems(); refreshButton();" ng-bind-html="varButtonLabel">' +
             '</button>' +
             '<div class="checkboxLayer">' +
                 '<form>' +
