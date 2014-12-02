@@ -31,7 +31,7 @@
  * --------------------------------------------------------------------------------
  */
 
-angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeout', function ($sce, $timeout) {
+angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeout', '$translate', function ($sce, $timeout, $translate) {
   return {
     restrict:
         'AE',
@@ -99,7 +99,8 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
                             '<div class="acol">' +
                                 '<label>' +
                                     '<input class="checkbox focusable" type="checkbox" ng-disabled="itemIsDisabled( item )" ng-checked="item[ tickProperty ]" ng-click="syncItems( item, $event, $index )" />' +
-                                    '<span ng-class="{disabled:itemIsDisabled( item )}" ng-bind-html="writeLabel( item, \'itemLabel\' )"></span>' +
+                                    //'<span ng-class="{disabled:itemIsDisabled( item )}" ng-bind-html="writeLabel( item, \'itemLabel\' )"></span>' +
+                                    '<span ng-class="{disabled:itemIsDisabled( item )}" translate="{{ item.name || writeLabel( item, \'itemLabel\') }}"></span>' +
                                 '</label>' +
                             '</div>' +
                             '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
