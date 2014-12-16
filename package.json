@@ -1,6 +1,6 @@
 {
     "name": "everestti-angular-multiselect",
-    "version": "v2.0.3",
+    "version": "v2.0.7",
     "description": "A multi select dropdown directive for AngularJS forked from isteven",
     "main": {
         "angular-multi-select.js",

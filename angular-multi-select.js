@@ -488,7 +488,8 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
             if (typeof value !== 'undefined') {
               if (ctr < tempMaxLabels) {
                 //Custom - Changed the default from  0 to 1
-                $scope.varButtonLabel += ($scope.varButtonLabel.length > 1 ? '</div>, <div class="buttonLabel">' : '<div class="buttonLabel">') + $scope.writeLabel(value, 'buttonLabel');
+                // $scope.varButtonLabel += ($scope.varButtonLabel.length > 1 ? '</div>, <div class="buttonLabel">' : '<div class="buttonLabel">') + $scope.writeLabel(value, 'buttonLabel');
+                $scope.varButtonLabel += ($scope.varButtonLabel.length > 1 ? '</div>, <div class="buttonLabel">' : '<div class="buttonLabel" >') + $translate.instant(value.name);
               }
               else
                 $scope.varButtonLabel = '';
