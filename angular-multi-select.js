@@ -100,7 +100,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
                                 '<label>' +
                                     '<input class="checkbox focusable" type="checkbox" ng-disabled="itemIsDisabled( item )" ng-checked="item[ tickProperty ]" ng-click="syncItems( item, $event, $index )" />' +
                                     //'<span ng-class="{disabled:itemIsDisabled( item )}" ng-bind-html="writeLabel( item, \'itemLabel\' )"></span>' +
-                                    '<span ng-class="{disabled:itemIsDisabled( item )}" translate="{{ item.name || writeLabel( item, \'itemLabel\') }}"></span>' +
+                                    '<span ng-class="{disabled:itemIsDisabled( item )}" translate="{{ item.Name || writeLabel( item, \'itemLabel\') }}"></span>' +
                                 '</label>' +
                             '</div>' +
                             '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
@@ -489,7 +489,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
               if (ctr < tempMaxLabels) {
                 //Custom - Changed the default from  0 to 1
                 // $scope.varButtonLabel += ($scope.varButtonLabel.length > 1 ? '</div>, <div class="buttonLabel">' : '<div class="buttonLabel">') + $scope.writeLabel(value, 'buttonLabel');
-                $scope.varButtonLabel += ($scope.varButtonLabel.length > 1 ? '</div>, <div class="buttonLabel">' : '<div class="buttonLabel" >') + $translate.instant(value.name);
+                $scope.varButtonLabel += ($scope.varButtonLabel.length > 1 ? '</div>, <div class="buttonLabel">' : '<div class="buttonLabel" >') + $translate.instant(value.Name);
               }
               else
                 $scope.varButtonLabel = '';

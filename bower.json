@@ -1,6 +1,6 @@
 {
     "name"      : "everestti-angular-multiselect",
-    "version"   : "v2.0.7",
+    "version"   : "v2.0.8",
     "main"      : [
         "angular-multi-select.js",
         "angular-multi-select.css"
