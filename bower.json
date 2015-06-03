@@ -1,6 +1,6 @@
 {
     "name"      : "everestti-angular-multiselect",
-    "version"   : "v2.0.8",
+    "version"   : "v2.0.11",
     "main"      : [
         "angular-multi-select.js",
         "angular-multi-select.css"
@@ -11,7 +11,7 @@
         "bower.json",
         "CHANGELOG.md",
         "package.json",
-        "README.md",        
+        "README.md",
         "screenshot.png"
     ],
     "private": true
