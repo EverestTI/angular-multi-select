@@ -1,32 +1,32 @@
-/* 
+/*
  * Angular JS Multi Select
- * Creates a dropdown-like button with checkboxes. 
+ * Creates a dropdown-like button with checkboxes.
  *
  * Project started on: Tue, 14 Jan 2014 - 5:18:02 PM
  * Current version: 2.0.3 - Forked
- * 
+ *
  * Released under the MIT License
  * --------------------------------------------------------------------------------
  * The MIT License (MIT)
  *
  * Copyright (c) 2014 Ignatius Steven (https://github.com/isteven)
  *
- * Permission is hereby granted, free of charge, to any person obtaining a copy 
- * of this software and associated documentation files (the "Software"), to deal 
- * in the Software without restriction, including without limitation the rights 
- * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
- * copies of the Software, and to permit persons to whom the Software is 
- * furnished to do so, subject to the following conditions: 
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
  *
- * The above copyright notice and this permission notice shall be included in all 
+ * The above copyright notice and this permission notice shall be included in all
  * copies or substantial portions of the Software.
- * 
- * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR 
- * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
- * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE 
- * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER 
- * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, 
- * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE 
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  * SOFTWARE.
  * --------------------------------------------------------------------------------
  */
@@ -61,7 +61,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
       hasError: '=',
 
 
-      // settings based on input model property 
+      // settings based on input model property
       tickProperty: '@',
       disableProperty: '@',
       groupProperty: '@',
@@ -100,7 +100,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
                                 '<label>' +
                                     '<input class="checkbox focusable" type="checkbox" ng-disabled="itemIsDisabled( item )" ng-checked="item[ tickProperty ]" ng-click="syncItems( item, $event, $index )" />' +
                                     //'<span ng-class="{disabled:itemIsDisabled( item )}" ng-bind-html="writeLabel( item, \'itemLabel\' )"></span>' +
-                                    '<span ng-class="{disabled:itemIsDisabled( item )}" translate="{{ item.Name || writeLabel( item, \'itemLabel\') }}"></span>' +
+                                    '<span ng-class="{disabled:itemIsDisabled( item )}">{{ item.Name || writeLabel( item, \'itemLabel\') }}</span>' +
                                 '</label>' +
                             '</div>' +
                             '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;' +
@@ -164,12 +164,12 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
             $scope.filteredModel.push($scope.inputModel[i]);
           }
 
-          // if it's data 
+          // if it's data
           var gotData = false;
           if (typeof $scope.inputModel[i][$scope.groupProperty] === 'undefined') {
 
             for (var key in $scope.inputModel[i]) {
-              // if filter string is in one of object property                            
+              // if filter string is in one of object property
               if (typeof $scope.inputModel[i][key] !== 'boolean' && String($scope.inputModel[i][key]).toUpperCase().indexOf($scope.inputLabel.labelFilter.toUpperCase()) >= 0) {
                 gotData = true;
                 break;
@@ -220,7 +220,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
       }
 
 
-      // Show or hide a helper element 
+      // Show or hide a helper element
       $scope.displayHelper = function (elementString) {
 
         if (attrs.selectionMode && $scope.selectionMode.toUpperCase() === 'SINGLE') {
@@ -291,7 +291,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
 
         // process items if the start of group marker is clicked ( only for multiple selection! )
         // if, in a group, there are items which are not selected, then they all will be selected
-        // if, in a group, all items are selected, then they all will be de-selected                
+        // if, in a group, all items are selected, then they all will be de-selected
         if (typeof item[$scope.groupProperty] !== 'undefined' && item[$scope.groupProperty] === true) {
 
           if (attrs.selectionMode && $scope.selectionMode.toUpperCase() === 'SINGLE') {
@@ -325,7 +325,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
 
               nestLevel = nestLevel - 1;
 
-              // cek if all are ticked or not                            
+              // cek if all are ticked or not
               if (tempArr.length > 0 && nestLevel === 0) {
 
                 var allTicked = true;
@@ -423,7 +423,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
         prevTabIndex = $scope.tabIndex;
         $scope.tabIndex = ng_repeat_index + helperItemsLength;
 
-        // Set focus on the hidden checkbox 
+        // Set focus on the hidden checkbox
         e.target.focus();
 
         // set & remove CSS style
@@ -466,7 +466,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
 
         // refresh button label...
         if ($scope.selectedItems.length === 0) {
-          // https://github.com/isteven/angular-multi-select/pull/19                    
+          // https://github.com/isteven/angular-multi-select/pull/19
           $scope.varButtonLabel = (typeof $scope.defaultLabel !== 'undefined') ? $scope.defaultLabel : 'None selected';
         }
         else {
@@ -489,7 +489,10 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
               if (ctr < tempMaxLabels) {
                 //Custom - Changed the default from  0 to 1
                 // $scope.varButtonLabel += ($scope.varButtonLabel.length > 1 ? '</div>, <div class="buttonLabel">' : '<div class="buttonLabel">') + $scope.writeLabel(value, 'buttonLabel');
-                $scope.varButtonLabel += ($scope.varButtonLabel.length > 1 ? '</div>, <div class="buttonLabel">' : '<div class="buttonLabel" >') + $translate.instant(value.Name);
+
+                  $scope.varButtonLabel += ($scope.varButtonLabel.length > 1 ? '</div>, <div class="buttonLabel">' : '<div class="buttonLabel" >') + $translate.instant(value.Name);
+
+                });
               }
               else
                 $scope.varButtonLabel = '';
@@ -580,7 +583,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
           return true;
         }
 
-        // The idea below was taken from another multi-select directive - https://github.com/amitava82/angular-multiselect 
+        // The idea below was taken from another multi-select directive - https://github.com/amitava82/angular-multiselect
         // His version is awesome if you need a more simple multi-select approach.
 
         // close
@@ -606,8 +609,8 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
           angular.element(document).bind('click', $scope.externalClickListener);
           angular.element(document).bind('keydown', $scope.keyboardListener);
 
-          // to get the initial tab index, depending on how many helper elements we have. 
-          // priority is to always focus it on the input filter 
+          // to get the initial tab index, depending on how many helper elements we have.
+          // priority is to always focus it on the input filter
           $scope.getFormElements();
           $scope.tabIndex = 0;
 
@@ -620,7 +623,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
             helperItemsLength = helperItems.length + helperContainer.getElementsByTagName('INPUT').length;
           }
 
-          // focus on the filter element on open. 
+          // focus on the filter element on open.
           if (element[0].querySelector('.inputFilter')) {
             element[0].querySelector('.inputFilter').focus();
             $scope.tabIndex = $scope.tabIndex + helperItemsLength - 2;
@@ -649,7 +652,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
         angular.element(document).unbind('click', $scope.externalClickListener);
         angular.element(document).unbind('keydown', $scope.keyboardListener);
 
-        // close callback                
+        // close callback
         $timeout(function () {
           $scope.onClose({ data: element });
         }, 0);
@@ -712,7 +715,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
         }
       }
 
-      // just to create a random variable name                
+      // just to create a random variable name
       genRandomString = function (length) {
         var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
         var temp = '';
@@ -756,7 +759,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
           $scope.toggleCheckboxes(e);
         }
 
-          // next element ( tab, down & right key )                    
+          // next element ( tab, down & right key )
         else if (key === 40 || key === 39 || (!e.shiftKey && key == 9)) {
           isNavigationKey = true;
           prevTabIndex = $scope.tabIndex;
@@ -835,7 +838,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
       $scope.indexProperty = 'idx_' + tempStr;
       $scope.spacingProperty = 'spc_' + tempStr;
 
-      // set orientation css            
+      // set orientation css
       if (typeof attrs.orientation !== 'undefined') {
         if (attrs.orientation.toUpperCase() === 'HORIZONTAL') {
           $scope.orientationH = true;
@@ -883,7 +886,7 @@ angular.module('multi-select', ['ng']).directive('multiSelect', ['$sce', '$timeo
         $scope.isDisabled = newVal;
       });
 
-      // this is for touch enabled devices. We don't want to hide checkboxes on scroll. 
+      // this is for touch enabled devices. We don't want to hide checkboxes on scroll.
       angular.element(document).bind('touchstart', function (e) {
         $scope.$apply(function () {
           $scope.scrolled = false;
